@@ -36,6 +36,15 @@ gem "jbuilder"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
+gem 'better_errors', '~> 2.9', '>= 2.9.1'
+gem 'guard', '~> 2.18'
+gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
+
+gem 'bulma-rails', '~> 0.9.3'
+gem 'simple_form', '~> 5.1'
+
+gem 'devise', '~> 4.8', '>= 4.8.1'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data"
 
@@ -43,7 +52,7 @@ gem "tzinfo-data"
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
