@@ -1,0 +1,2 @@
+class Qwipp < ApplicationRecord
+end

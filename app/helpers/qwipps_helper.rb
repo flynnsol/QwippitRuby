@@ -1,0 +1,2 @@
+module QwippsHelper
+end

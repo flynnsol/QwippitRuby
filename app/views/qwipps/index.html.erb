@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Qwipps</h1>
+
+<div id="qwipps">
+  <% @qwipps.each do |qwipp| %>
+    <%= render qwipp %>
+    <p>
+      <%= link_to "Show this qwipp", qwipp %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New qwipp", new_qwipp_path %>
