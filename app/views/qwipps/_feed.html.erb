@@ -1,0 +1,32 @@
+<div class="column is-half">
+    <article class="media box is-dark-bg-highlight">
+        <figure class="media-left">
+            <p class="image is-64x64">
+                <img src="http://bulma.io/images/placeholders/64x64.png" alt="">
+            </p>
+        </figure>
+        <div class="media-content">
+            <%= render 'qwipps/form' %>
+        </div>
+    </article>
+    <% @qwipps.each do | qwipp | %>
+        <%= link_to qwipp, class: "box is-dark-bg-highlight" do %>
+            <article class="media">
+                <div class="media-left">
+                    <figure class="image is-64x64">
+                        <img src="http://bulma.io/images/placeholders/64x64.png" alt="">
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <div class="content">
+                        <strong class="is-main-font-color">Flynn MacDonald</strong>
+                        <small class="is-main-font-color">@flynn</small>
+                        <p class="is-main-font-color"><%= qwipp.qwipp %></p>
+                        </br>
+                        <small class="is-main-font-color-lighter">Created At: <%= qwipp.created_at %></small>
+                    </div>
+                </div>
+            </article>
+        <% end %>
+    <% end %>
+</div>

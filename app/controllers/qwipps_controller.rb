@@ -3,7 +3,8 @@ class QwippsController < ApplicationController
 
   # GET /qwipps or /qwipps.json
   def index
-    @qwipps = Qwipp.all
+    @qwipps = Qwipp.all.order("created_at DESC")
+    @qwipp = Qwipp.new
   end
 
   # GET /qwipps/1 or /qwipps/1.json

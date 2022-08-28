@@ -16,3 +16,129 @@
 
 
  @import 'bulma';
+
+
+.box {
+    transition: box-shadow 0.75s ease;
+}
+
+a.box:hover {
+    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.10), 0 0 0 1px #BEA7E5;
+    transition: box-shadow 0.75s ease;
+}
+
+.panel-tabs:not(:last-child), .panel-block:not(:last-child) {
+    border-bottom: 1px solid #65596E;
+}
+
+.panel:not(:last-child) {
+    margin: 0;
+    border-bottom: 1px solid #65596E;
+}
+
+.panel-heading:not(:last-child) {
+    margin: 0;
+    border-bottom: 1px solid #65596E;
+}
+
+a.panel-block {
+    transition: background-color 0.75s ease;
+}
+
+a.panel-block:hover, label.panel-block:hover {
+    background-color: #54485D;
+    color: #EFDBF9;
+    transition: background-color 0.75s ease;
+}
+
+a {
+    text-decoration: none;
+}
+
+.button {
+    border: none;
+}
+
+.navbar {
+    .button {
+        margin: 0.5em;
+    }
+}
+
+.textarea {
+    border-color: #31263B;
+    transition: border-color 0.75s ease;
+    resize: none;
+}
+
+.textarea:hover {
+    border-color: #42374C;
+    transition: border-color 0.75s ease;
+}
+
+.textarea::placeholder {
+    color: #EFDBF9;
+    opacity: 25%;
+}
+
+.textarea:focus {
+    border-color: #42374C;
+    transition: border-color 0.75s ease;
+}
+
+.is-main-font-color-lighter {
+    color: #EFDBF9;
+    opacity: 65%;
+}
+
+.is-main-font-color {
+    color: #EFDBF9;
+}
+
+.title {
+    color: #EFDBF9;
+    transition: color 0.75s ease;
+}
+
+.title:hover {
+    color: #BEA7E5;
+    transition: Color 0.75s ease;
+}
+
+.is-button-font-color {
+    color: #EFDBF9;
+}
+
+.is-button-font-color:hover {
+    color: #EFDBF9;
+}
+
+.is-button-color {
+    background-color: #65596E;
+    transition: background-color 0.75s ease;
+}
+
+.is-button-color:hover {
+    background-color: #54485D;
+    transition: background-color 0.75s ease;
+}
+
+.is-dark-bg-highlight {
+    background-color: #42374C;
+}
+
+.is-dark-bg-color {
+    background-color: #31263B;
+}
+
+// round images
+.image {
+    border-radius: 50%;
+    img {
+        border-radius: 50%;
+    }
+}
+
+.notification:not(:last-child) {
+    margin-bottom: 0;
+}

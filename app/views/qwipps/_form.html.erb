@@ -1,22 +1,9 @@
-<%= form_with(model: qwipp) do |form| %>
-  <% if qwipp.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(qwipp.errors.count, "error") %> prohibited this qwipp from being saved:</h2>
-
-      <ul>
-        <% qwipp.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :qwipp, style: "display: block" %>
-    <%= form.text_area :qwipp %>
+<%= simple_form_for(@qwipp) do |f| %>
+<%= f.error_notification %>
+<div class="field">
+  <div class="control is-main-font-color">
+    <%= f.input :qwipp, label: false, input_html: { class: "textarea is-dark-bg-color is-main-font-color"}, wrapper: false, placeholder: "Don't think it, Qwipp it." %>
   </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+</div>
+<%= f.button :submit, class: "button is-button-color is-button-font-color" %>
 <% end %>
