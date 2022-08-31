@@ -26,7 +26,7 @@ class QwippsController < ApplicationController
 
     respond_to do |format|
       if @qwipp.save
-        format.html { redirect_to qwipp_url(@qwipp), notice: "Qwipp was successfully created." }
+        format.html { redirect_to root_path, notice: "Qwipp was successfully created." }
         format.json { render :show, status: :created, location: @qwipp }
       else
         format.html { render :new, status: :unprocessable_entity }

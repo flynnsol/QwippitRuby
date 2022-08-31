@@ -23,7 +23,12 @@
                         <small class="is-main-font-color">@flynn</small>
                         <p class="is-main-font-color"><%= qwipp.qwipp %></p>
                         </br>
-                        <small class="is-main-font-color-lighter">Created At: <%= qwipp.created_at %></small>
+                        <small class="is-main-font-color-lighter">Qwipped: <%= local_time_ago(qwipp.created_at) %>
+
+                        <% if qwipp.updated_at != qwipp.created_at %>
+                            &nbsp;Edited: <%= local_time_ago(qwipp.updated_at) %>
+                        <% end %>
+                        </small>
                     </div>
                 </div>
             </article>

@@ -19,12 +19,12 @@
 
 
 .box {
-    transition: box-shadow 0.75s ease;
+    transition: box-shadow 0.5s ease;
 }
 
 a.box:hover {
     box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.10), 0 0 0 1px #BEA7E5;
-    transition: box-shadow 0.75s ease;
+    transition: box-shadow 0.5s ease;
 }
 
 .panel-tabs:not(:last-child), .panel-block:not(:last-child) {
@@ -42,13 +42,13 @@ a.box:hover {
 }
 
 a.panel-block {
-    transition: background-color 0.75s ease;
+    transition: background-color 0.5s ease;
 }
 
 a.panel-block:hover, label.panel-block:hover {
     background-color: #54485D;
     color: #EFDBF9;
-    transition: background-color 0.75s ease;
+    transition: background-color 0.5s ease;
 }
 
 a {
@@ -67,13 +67,13 @@ a {
 
 .textarea {
     border-color: #31263B;
-    transition: border-color 0.75s ease;
+    transition: border-color 0.5s ease;
     resize: none;
 }
 
 .textarea:hover {
     border-color: #42374C;
-    transition: border-color 0.75s ease;
+    transition: border-color 0.5s ease;
 }
 
 .textarea::placeholder {
@@ -83,7 +83,7 @@ a {
 
 .textarea:focus {
     border-color: #42374C;
-    transition: border-color 0.75s ease;
+    transition: border-color 0.5s ease;
 }
 
 .is-main-font-color-lighter {
@@ -97,12 +97,12 @@ a {
 
 .title {
     color: #EFDBF9;
-    transition: color 0.75s ease;
+    transition: color 0.5s ease;
 }
 
 .title:hover {
     color: #BEA7E5;
-    transition: Color 0.75s ease;
+    transition: Color 0.5s ease;
 }
 
 .is-button-font-color {
@@ -115,12 +115,12 @@ a {
 
 .is-button-color {
     background-color: #65596E;
-    transition: background-color 0.75s ease;
+    transition: background-color 0.5s ease;
 }
 
 .is-button-color:hover {
     background-color: #54485D;
-    transition: background-color 0.75s ease;
+    transition: background-color 0.5s ease;
 }
 
 .is-dark-bg-highlight {

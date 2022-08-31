@@ -141,6 +141,7 @@ GEM
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    local_time (2.1.0)
     loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -296,6 +297,7 @@ DEPENDENCIES
   guard-livereload (~> 2.5, >= 2.5.2)
   importmap-rails
   jbuilder
+  local_time
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
   sassc-rails
