@@ -1,4 +1,5 @@
 <div class="column is-half">
+    <% if user_signed_in? %>
     <article class="media box is-dark-bg-highlight">
         <figure class="media-left">
             <p class="image is-64x64">
@@ -9,6 +10,7 @@
             <%= render 'qwipps/form' %>
         </div>
     </article>
+    <% end %>
     <% @qwipps.each do | qwipp | %>
         <%= link_to qwipp, class: "box is-dark-bg-highlight" do %>
             <article class="media">
@@ -19,10 +21,9 @@
                 </div>
                 <div class="media-content">
                     <div class="content">
-                        <strong class="is-main-font-color">Flynn MacDonald</strong>
-                        <small class="is-main-font-color">@flynn</small>
+                        <strong class="is-main-font-color"><%= qwipp.user.name %></strong>
+                        <small class="is-main-font-color">@<%= qwipp.user.username %></small>
                         <p class="is-main-font-color"><%= qwipp.qwipp %></p>
-                        </br>
                         <small class="is-main-font-color-lighter">Qwipped: <%= local_time_ago(qwipp.created_at) %>
 
                         <% if qwipp.updated_at != qwipp.created_at %>

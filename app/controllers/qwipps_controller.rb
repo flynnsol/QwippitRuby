@@ -1,5 +1,6 @@
 class QwippsController < ApplicationController
   before_action :set_qwipp, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /qwipps or /qwipps.json
   def index
@@ -13,7 +14,7 @@ class QwippsController < ApplicationController
 
   # GET /qwipps/new
   def new
-    @qwipp = Qwipp.new
+    @qwipp = current_user.qwipps.build
   end
 
   # GET /qwipps/1/edit
@@ -22,7 +23,7 @@ class QwippsController < ApplicationController
 
   # POST /qwipps or /qwipps.json
   def create
-    @qwipp = Qwipp.new(qwipp_params)
+    @qwipp = current_user.qwipps.build(qwipp_params)
 
     respond_to do |format|
       if @qwipp.save

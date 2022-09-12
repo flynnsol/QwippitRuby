@@ -1,0 +1,46 @@
+<div class="column is-one-quarter">
+    <nav class="panel is-dark-bg-highlight">
+        <p class="panel-heading is-dark-bg-highlight is-main-font-color">Profile</p>
+        <div class="panel-block">
+            <article class="media">
+                <div class="media-left">
+                    <figure class="image is-64x64">
+                        <img src="http://bulma.io/images/placeholders/64x64.png" alt="profile image">
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <strong class="is-main-font-color"><%= current_user.name %></strong>
+                            <small class="is-main-font-color">@<%= current_user.username%></small>
+                            <br/>
+                            <small class="is-main-font-color">Bio Test</small>
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="panel-block">
+            <div class="level is-mobile">
+                <div class="level-item has-centered-text">
+                    <div>
+                        <p class="heading is-main-font-color">Qwipps</p>
+                        <p class="title is-6 is-main-font-color"><%= current_user.qwipps.count %></p>
+                    </div>
+                </div>
+                <div class="level-item has-centered-text">
+                    <div>
+                        <p class="heading is-main-font-color">Followers</p>
+                        <p class="title is-6 is-main-font-color">123</p>
+                    </div>
+                </div>
+                <div class="level-item has-centered-text">
+                    <div>
+                        <p class="heading is-main-font-color">Following</p>
+                        <p class="title is-6 is-main-font-color">456</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

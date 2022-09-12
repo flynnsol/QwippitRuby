@@ -14,9 +14,13 @@
  *= require_self
  */
 
+ $purple: #31263B;
 
  @import 'bulma';
 
+ body {
+    overflow-x: hidden;
+ }
 
 .box {
     transition: box-shadow 0.5s ease;
@@ -52,7 +56,25 @@ a.panel-block:hover, label.panel-block:hover {
 }
 
 a {
+    color:#EFDBF9;
     text-decoration: none;
+    transition: color 0.5s ease;
+}
+
+a:hover {
+    color: #BEA7E5;
+    transition: color 0.5s ease;
+}
+
+.is-hyperlink-color {
+    color:#EFDBF9 !important;
+    text-decoration: none !important;
+    transition: color 0.5s ease;
+}
+
+.is-hyperlink-color:hover {
+    color: #BEA7E5 !important;
+    transition: color 0.5s ease;
 }
 
 .button {
@@ -65,25 +87,41 @@ a {
     }
 }
 
-.textarea {
+.input, .textarea {
     border-color: #31263B;
     transition: border-color 0.5s ease;
     resize: none;
 }
 
-.textarea:hover {
-    border-color: #42374C;
+.input:hover, .textarea:hover {
+    border-color: #54485D !important;
     transition: border-color 0.5s ease;
 }
 
-.textarea::placeholder {
+.dropdown-divider {
+    border-top: 2px solid #54485D;
+}
+
+a.dropdown-item, button.dropdown-item {
+    width: 93%;
+}
+
+.nav-separator {
+    margin-top: 2em;
+}
+
+.input::placeholder, .textarea::placeholder {
     color: #EFDBF9;
     opacity: 25%;
 }
 
-.textarea:focus {
+.input:focus, .textarea:focus {
     border-color: #42374C;
     transition: border-color 0.5s ease;
+}
+
+.fa {
+    font: normal normal normal 14px/1 FontAwesome, BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
 }
 
 .is-main-font-color-lighter {
@@ -92,7 +130,11 @@ a {
 }
 
 .is-main-font-color {
-    color: #EFDBF9;
+    color: #EFDBF9 !important;
+}
+
+.is-main-font-color:hover {
+    color: #EFDBF9 !important;
 }
 
 .title {
@@ -131,6 +173,16 @@ a {
     background-color: #31263B;
 }
 
+.checkbox {
+    color: #EFDBF9 !important;
+    transition: color 0.5s ease;
+}
+
+.checkbox:hover {
+    color: #BEA7E5 !important;
+    transition: color 0.5s ease;
+}
+
 // round images
 .image {
     border-radius: 50%;
@@ -141,4 +193,75 @@ a {
 
 .notification:not(:last-child) {
     margin-bottom: 0;
+}
+
+// Side Nav
+#content {
+	padding: 15px;
+	transition: margin-left 0.7s;
+	overflow: hidden;
+	width: 100%;
+}
+.slide a {
+	color: #000;
+	font-size: 36px;
+}
+.nav .close {
+	position: absolute;
+	top: 8px;
+	right: 22px;
+	margin-left: 50px;
+	font-size: 30px;
+	color: #ccc;
+}
+.nav {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #282828;
+	overflow-x: hidden;
+	padding-top: 60px;
+	transition: 0.7s;
+}
+.nav a.item {
+	display: flex;
+	flex-direction: row;
+	padding: 18px 30px;
+	font-size: 30px;
+	text-decoration: none;
+	color: #ccc;
+	background-color: #3d3d3d;
+	border-top: 1px solid #ccc;
+}
+.nav .last {
+	border-bottom: 1px solid #ccc;
+}
+.nav a.item:hover {
+	color: #fff;
+	background-color: #cf0000;
+	transition: 0.4s;
+}
+.nav .icon {
+	padding-right: 10px;
+	font-size: 35px;
+}
+.nav ul {
+	display: flex;
+	position: absolute;
+	width: 100%;
+	margin-top: 50px;
+}
+.nav ul li {
+	list-style: none;
+}
+.nav ul li a.inline {
+	font-size: 26px;
+	color: #ccc;
+	padding: 6px 5px 3px;
+}
+.nav ul li a.inline:hover {
+	color: #cf0000;
 }

@@ -8,6 +8,7 @@
     <%= favicon_link_tag asset_path('logo.png') %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" %>
     <%= javascript_importmap_tags %>
     <%= content_for :head do %>
       <%= javascript_import_module_tag "local-time.js" %>
@@ -16,37 +17,79 @@
 
   <body>
     <% if flash[:notice] %>
-      <div class="notification is-primary global-notification">
+      <div class="notification is-primary global-notification animate__animated animate__fadeInDown">
         <p class="notice"><%= notice %></p>
       </div>
     <% end %>
     <% if flash[:alert] %>
-      <div class="notification is-danger global-notification">
+      <div class="notification is-danger global-notification animate__animated animate__fadeInDown">
         <p class="alert"><%= alert %></p>
       </div>
     <% end %>
-    <div class="navbar fixed is-dark-bg-highlight">
+    <% if device == "mobile" %>
+      <div class="navbar is-fixed-top is-dark-bg-highlight">
+    <% else %>
+      <div class="navbar is-dark-bg-highlight">
+    <% end %>
       <div class="navbar-brand">
-        <%= link_to root_path, class: "navbar-item" do %>
-          <%= image_tag "logo.png", class: "" %>
-          <h1 class="title is-5">Qwippit</h1>
-        <% end %>
-        <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
-          <span aria-hidden="true" class="is-main-font-color"></span>
-          <span aria-hidden="true" class="is-main-font-color"></span>
-          <span aria-hidden="true" class="is-main-font-color"></span>
-        </a>
-      </div>
-      <div id="navMenu" class="navbar-menu">
-        <div class="navbar-end">
-          <div class="field is-grouped">
-            <p class="control">
-              <%= link_to 'New Qwipp', new_qwipp_path, class: "button is-borderless is-button-color is-button-font-color" %>
-            </p>
+      <% if device == "mobile" %>
+        <% if user_signed_in? %>
+          <div class="dropdown is-dark-bg-highlight">
+            <div class="dropdown-trigger is-dark-bg-highlight">
+              <button class="button is-button-color is-button-font-color" aria-haspopup="true" aria-controls="dropdown-menu">
+                <span><%= current_user.name %></span>
+                <span class="icon is-small">
+                  <i class="fa fa-angle-down" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
+            <div class="dropdown-menu is-dark-bg-highlight" id="dropdown-menu" role="menu">
+              <div class="dropdown-content is-dark-bg-highlight">
+                <%= link_to 'New Qwipp', root_path, class: "button dropdown-item is-borderless is-button-color is-button-font-color" %>
+                <%= link_to "My Profile", edit_user_registration_path, class: "button dropdown-item is-borderless is-button-color is-button-font-color" %>
+                <hr class="dropdown-divider">
+                <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "button dropdown-item is-borderless is-button-color is-button-font-color a" %>
+              </div>
+            </div>
           </div>
-        </div>
+        <% end %>
+      <% end %>
+        <% if device == "mobile" %>
+          <div class="navbar-item">
+            <%= image_tag "logo.png", class: "" %>
+            <h1 class="title is-5 is-main-font-color">Qwippit</h1>
+          </div>
+        <% else %>
+          <%= link_to root_path, class: "navbar-item" do %>
+            <%= image_tag "logo.png", class: "" %>
+            <h1 class="title is-5">Qwippit</h1>
+          <% end %>
+        <% end %>
       </div>
+      <% if device != "mobile" %>
+        <div class="navbar-end">
+          <% if user_signed_in? %>
+            <p class="control">
+              <%= link_to 'New Qwipp', root_path, class: "button is-borderless is-button-color is-button-font-color" %>
+            </p>
+            <p class="control">
+              <%= link_to current_user.name, edit_user_registration_path, class: "button is-borderless is-button-color is-button-font-color" %>
+            </p>
+            <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "control button is-borderless is-button-color is-button-font-color a" %>
+          <% else %>
+            <p class="control">
+              <%= link_to 'Sign In', new_user_session_path, class: "button is-borderless is-button-color is-button-font-color" %>
+            </p>
+            <p class="control">
+              <%= link_to 'Sign Up', new_user_registration_path, class: "button is-borderless is-button-color is-button-font-color" %>
+            </p>
+          <% end %>
+        </div>
+      <% end %>
     </div>
+    <% if device == "mobile" %>
+      <div class="nav-separator"></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

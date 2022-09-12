@@ -1,20 +1,40 @@
-<h2>Log in</h2>
+<div class="section">
+  <div class="container">
+    <div class="columns is-centered">
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <div class="column is-4">
+        <h2 class="title is-2 is-main-font-color">
+          Sign In
+        </h2>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <div class="control is-main-font-color">
+              <%= f.input :email,
+                          required: true,
+                          label: "Email",
+                          autofocus: true,
+                          input_html: { autocomplete: "email", class:"input is-rounded is-dark-bg-highlight is-main-font-color" }, wrapper: false, label_html: { class: "fa fa-envelope" } %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control is-main-font-color">
+              <%= f.input :password,
+                          required: true,
+                          label: "Password",
+                          input_html: { autocomplete: "current-password", class:"input is-rounded is-dark-bg-highlight is-main-font-color" }, wrapper: false, label_html: { class: "fa fa-lock" } %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control is-main-font-color">
+              <%= f.input :remember_me, wrapper: false, input_html: { class: "is-main-font-color" }, as: :boolean if devise_mapping.rememberable? %>
+            </div>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Sign In", class: "button is-button-color is-button-font-color" %><br/><br/>
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

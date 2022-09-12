@@ -1,9 +1,17 @@
 <section class="section">
   <div class="container">
     <div class="columns">
-      <%= render 'trends' %>
-      <%= render 'feed' %>
-      <%= render 'who-to-follow' %>
+      <% if device == "mobile" %>
+        <%= render 'feed' %>
+      <% else %>
+        <% if user_signed_in? %>
+          <%= render 'profile' %>
+        <% else %>
+          <%= render 'trends' %>
+        <% end %>
+        <%= render 'feed' %>
+        <%= render 'who-to-follow' %>
+      <% end %>
     </div>
   </div>
 </section>

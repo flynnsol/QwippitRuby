@@ -1,18 +1,30 @@
-<h2>Forgot your password?</h2>
+<div class="section">
+  <div class="container">
+    <div class="columns is-centered">
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+      <div class="column is-4">
+        <h2 class="title is-2 is-main-font-color">
+          Forgot your password?
+        </h2>
+        <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= f.error_notification %>
+          <div class="field">
+            <div class="control is-main-font-color">
+              <div class="form-inputs">
+                <%= f.input :email,
+                            required: true,
+                            autofocus: true,
+                            input_html: { autocomplete: "email", class:"input is-rounded is-dark-bg-highlight is-main-font-color" }, wrapper: false, label_html: { class: "fa fa-envelope" } %>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Reset Password", class: "button is-button-color is-button-font-color" %><br/><br/>
+            <%= render "devise/shared/links" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+            

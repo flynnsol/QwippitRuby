@@ -1,7 +1,43 @@
-<div id="<%= dom_id qwipp %>">
-  <p>
-    <strong>Qwipp:</strong>
-    <%= qwipp.qwipp %>
-  </p>
+<div class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <%= link_to "Back", :back, class: "button is-button-color is-button-font-color" %><br/><br/>
+        <div class="box is-dark-bg-highlight">
+          <article class="media">
+            <div class="media-left">
+              <figure class="image is-64x64">
+                <img src="http://bulma.io/images/placeholders/64x64.png" alt="">
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <strong class="is-main-font-color"><%= qwipp.user.name %></strong><br/>
+                <small class="is-main-font-color">@<%= qwipp.user.username %></small><br/>
+                <p class="is-main-font-color"><%= qwipp.qwipp %></p>
 
+                <small class="is-main-font-color-lighter">Qwipped: <%= local_time_ago(qwipp.created_at) %>
+
+                <% if qwipp.updated_at != qwipp.created_at %>
+                    &nbsp;Edited: <%= local_time_ago(qwipp.updated_at) %>
+                <% end %>
+                </small>
+                <nav class="level-right">
+                  <div class="level-right is-mobile">
+                    <% if user_signed_in? %>
+                      <% if current_user.id == qwipp.user.id %>
+                        <%= link_to edit_qwipp_path(qwipp), class: "level-item fa fa-pencil" do %>
+                        <% end %>
+                        <%= button_to "", @qwipp, method: :delete, class: "button is-hyperlink-color is-ghost fa fa-trash" %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
